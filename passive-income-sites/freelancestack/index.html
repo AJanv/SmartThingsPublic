@@ -183,7 +183,8 @@
     var q = searchEl.value.trim().toLowerCase();
     var list = TOOLS.filter(function(t){
       var okCat = activeCat === "All" || t.cat === activeCat;
-      var okQ = !q || (t.name + " " + t.cat + " " + t.desc).toLowerCase().indexOf(q) !== -1;
+      var hay = (t.name + " " + t.cat + " " + t.desc).toLowerCase();
+      var okQ = !q || hay.indexOf(q) !== -1 || (q.length > 4 && hay.indexOf(q.slice(0, -1)) !== -1);
       return okCat && okQ;
     });
     list.sort(function(a,b){ return (b.featured?1:0) - (a.featured?1:0); });
