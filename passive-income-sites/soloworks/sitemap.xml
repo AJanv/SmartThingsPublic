@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: replace https://yourdomain.com with your real domain before submitting to Search Console -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://yourdomain.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://yourdomain.com/rates/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://yourdomain.com/templates/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://yourdomain.com/tools/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://yourdomain.com/blog/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://yourdomain.com/blog/how-much-should-i-charge-freelance.html</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://yourdomain.com/blog/how-to-write-a-freelance-invoice.html</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://yourdomain.com/blog/client-wont-pay-email-scripts.html</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
+</urlset>

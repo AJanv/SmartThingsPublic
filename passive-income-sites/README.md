@@ -1,5 +1,16 @@
 # Passive Income Sites
 
+**→ Deploy `soloworks/` — it's the recommended umbrella site** that merges all three products
+under one brand and one domain (stronger SEO than three separate domains). It contains:
+landing page, `/rates/` (calculator + invoice generator), `/templates/` (store), `/tools/`
+(directory), `/blog/` (3 SEO articles), plus `sitemap.xml` and `robots.txt`.
+
+Before going live: find-and-replace `yourdomain.com` with your real domain (canonical tags,
+sitemap, robots), and optionally rename the placeholder brand "SoloWorks" (plain
+find-and-replace across the HTML files).
+
+The three standalone sites below are kept in case you prefer separate brands/domains.
+
 Three self-contained static websites in one niche (freelancing) that cross-promote each other.
 Each site is a single `index.html` — no build step, no server, no database. They run on any
 static host and cost nothing to operate.

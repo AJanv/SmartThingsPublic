@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Freelance Rate Calculator & Invoice Generator — SoloWorks</title>
+<meta name="description" content="Work out what to charge as a freelancer with our free hourly rate calculator, then bill clients with the free invoice generator. No signup, works in your browser.">
+<link rel="canonical" href="https://yourdomain.com/rates/">
+<meta property="og:title" content="Free Freelance Rate Calculator & Invoice Generator — SoloWorks">
+<meta property="og:description" content="Find your freelance hourly rate and create professional invoices in seconds. Free, no signup.">
+<meta property="og:type" content="website">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I calculate my freelance hourly rate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Add your target annual income and yearly business expenses, then divide by your true billable hours: working weeks per year times hours per week times the percentage of time you can actually bill. Add a profit buffer of 10-20% for slow months."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is a freelance rate higher than an employee salary?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Freelancers pay their own taxes, insurance, equipment, software, sick days and holidays, and spend unbillable time on admin and finding clients. A common rule of thumb is that a freelance hourly rate should be 1.5x to 2x the equivalent employee hourly wage."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this invoice generator really free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Everything runs in your browser — nothing is uploaded to a server, there is no signup, and you can print or save your invoice as a PDF using your browser's print dialog."
+      }
+    }
+  ]
+}
+</script>
+<style>
+  :root{
+    --ink:#101418; --panel:#171d24; --panel2:#1e2630; --edge:#2b3642;
+    --text:#e8edf2; --muted:#8b98a5; --lime:#c6f24e; --lime-ink:#1a2405;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--ink);color:var(--text);line-height:1.6}
+  .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+  .wrap{max-width:1060px;margin:0 auto;padding:0 20px}
+  header{position:sticky;top:0;z-index:50;background:rgba(16,20,24,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--edge)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .logo{font-weight:800;font-size:1.15rem;letter-spacing:-.02em;color:var(--text);text-decoration:none}
+  .logo b{color:var(--lime)}
+  .nav a.link{color:var(--muted);text-decoration:none;margin-left:22px;font-size:.92rem}
+  .nav a.link:hover{color:var(--text)}
+  .hero{padding:72px 0 40px;text-align:center}
+  .hero h1{font-size:clamp(1.9rem,4.5vw,3.1rem);letter-spacing:-.03em;line-height:1.12;font-weight:800}
+  .hero h1 span{color:var(--lime)}
+  .hero p{color:var(--muted);max-width:620px;margin:18px auto 0;font-size:1.05rem}
+  .cta-row{margin-top:28px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .btn{display:inline-block;padding:12px 22px;border-radius:10px;text-decoration:none;font-weight:700;font-size:.95rem;border:1px solid var(--edge);color:var(--text)}
+  .btn.primary{background:var(--lime);color:var(--lime-ink);border-color:var(--lime)}
+  .btn.primary:hover{filter:brightness(1.08)}
+  .btn:hover{border-color:var(--muted)}
+  section{padding:56px 0}
+  h2{font-size:1.6rem;letter-spacing:-.02em;margin-bottom:6px}
+  .sub{color:var(--muted);margin-bottom:28px}
+  .tool{background:var(--panel);border:1px solid var(--edge);border-radius:16px;padding:28px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+  @media(max-width:820px){.grid2{grid-template-columns:1fr}}
+  label{display:block;font-size:.82rem;color:var(--muted);margin:14px 0 5px;font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+  input[type=number],input[type=text],input[type=email],input[type=date],select,textarea{
+    width:100%;background:var(--panel2);border:1px solid var(--edge);border-radius:8px;color:var(--text);
+    padding:10px 12px;font-size:.98rem;font-family:inherit}
+  input:focus,select:focus,textarea:focus{outline:2px solid var(--lime);outline-offset:-1px}
+  .result-card{background:var(--panel2);border:1px solid var(--edge);border-radius:12px;padding:22px;text-align:center}
+  .result-card .big{font-size:2.6rem;font-weight:800;color:var(--lime);letter-spacing:-.02em}
+  .result-card .lbl{color:var(--muted);font-size:.85rem;text-transform:uppercase;letter-spacing:.06em}
+  .result-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
+  .result-mini{background:var(--panel2);border:1px solid var(--edge);border-radius:10px;padding:14px;text-align:center}
+  .result-mini .v{font-weight:700;font-size:1.15rem}
+  .result-mini .k{color:var(--muted);font-size:.75rem;text-transform:uppercase;letter-spacing:.05em}
+  .note{font-size:.85rem;color:var(--muted);margin-top:16px}
+  .affiliate{margin-top:22px;border:1px dashed var(--edge);border-radius:12px;padding:16px 18px;font-size:.92rem;color:var(--muted)}
+  .affiliate a{color:var(--lime);font-weight:700;text-decoration:none}
+  /* invoice */
+  .items-table{width:100%;border-collapse:collapse;margin-top:8px}
+  .items-table th{font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;text-align:left;padding:6px 6px}
+  .items-table td{padding:4px 4px}
+  .items-table input{padding:8px 10px}
+  .row-del{background:none;border:none;color:var(--muted);cursor:pointer;font-size:1.1rem;padding:4px 8px}
+  .row-del:hover{color:#ff7a7a}
+  .add-row{margin-top:10px;background:none;border:1px dashed var(--edge);color:var(--muted);border-radius:8px;padding:8px 14px;cursor:pointer;font-size:.9rem}
+  .add-row:hover{color:var(--lime);border-color:var(--lime)}
+  .inv-preview{background:#fff;color:#15181c;border-radius:12px;padding:34px;min-height:420px}
+  .inv-preview h3{font-size:1.6rem;letter-spacing:-.02em}
+  .inv-head{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:22px}
+  .inv-meta{font-size:.85rem;color:#5a6470;white-space:pre-line}
+  .inv-table{width:100%;border-collapse:collapse;font-size:.9rem;margin-top:8px}
+  .inv-table th{border-bottom:2px solid #15181c;text-align:left;padding:8px 6px;font-size:.75rem;text-transform:uppercase;letter-spacing:.05em}
+  .inv-table td{border-bottom:1px solid #e3e7ec;padding:9px 6px}
+  .inv-table .num{text-align:right}
+  .inv-totals{margin-top:14px;margin-left:auto;width:min(260px,100%);font-size:.95rem}
+  .inv-totals div{display:flex;justify-content:space-between;padding:4px 6px}
+  .inv-totals .grand{border-top:2px solid #15181c;font-weight:800;font-size:1.1rem;margin-top:4px;padding-top:8px}
+  .inv-notes{margin-top:22px;font-size:.85rem;color:#5a6470;white-space:pre-line}
+  .faq{max-width:760px}
+  .faq details{border:1px solid var(--edge);border-radius:10px;padding:16px 18px;margin-bottom:10px;background:var(--panel)}
+  .faq summary{cursor:pointer;font-weight:700}
+  .faq p{color:var(--muted);margin-top:10px;font-size:.95rem}
+  footer{border-top:1px solid var(--edge);padding:34px 0;color:var(--muted);font-size:.88rem}
+  footer a{color:var(--text);text-decoration:none}
+  @media print{
+    body *{visibility:hidden}
+    .inv-preview,.inv-preview *{visibility:visible}
+    .inv-preview{position:absolute;left:0;top:0;width:100%;border-radius:0;padding:24px}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="../">Solo<b>Works</b></a>
+    <nav>
+      <a class="link" href="#rate-calculator">Rate Calculator</a>
+      <a class="link" href="#invoice-generator">Invoice Generator</a>
+      <a class="link" href="../templates/">Templates</a>
+      <a class="link" href="../tools/">Tool Directory</a>
+      <a class="link" href="../blog/">Blog</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap hero">
+  <h1>Know what to charge.<br>Then <span>get paid</span> for it.</h1>
+  <p>Two free tools for freelancers: a rate calculator that works out what you should actually charge, and an invoice generator that gets you paid. No signup. Nothing leaves your browser.</p>
+  <div class="cta-row">
+    <a class="btn primary" href="#rate-calculator">Calculate my rate</a>
+    <a class="btn" href="#invoice-generator">Create an invoice</a>
+  </div>
+</div>
+
+<section id="rate-calculator" class="wrap">
+  <h2>Freelance Rate Calculator</h2>
+  <p class="sub">Most freelancers undercharge because they price against a salary. This works out your true break-even and target rate.</p>
+  <div class="tool grid2">
+    <div>
+      <label for="income">Target annual income (take-home goal)</label>
+      <input type="number" id="income" value="90000" min="0" step="1000">
+      <label for="expenses">Annual business expenses (software, gear, insurance…)</label>
+      <input type="number" id="expenses" value="8000" min="0" step="500">
+      <label for="taxrate">Estimated tax rate (%)</label>
+      <input type="number" id="taxrate" value="25" min="0" max="60" step="1">
+      <label for="weeks">Working weeks per year (after holidays & sick days)</label>
+      <input type="number" id="weeks" value="46" min="1" max="52" step="1">
+      <label for="hours">Working hours per week</label>
+      <input type="number" id="hours" value="40" min="1" max="80" step="1">
+      <label for="billable">Percent of time that's actually billable (%)</label>
+      <input type="number" id="billable" value="60" min="10" max="100" step="5">
+      <label for="buffer">Profit buffer for slow months (%)</label>
+      <input type="number" id="buffer" value="15" min="0" max="50" step="5">
+      <label for="currency">Currency</label>
+      <select id="currency">
+        <option value="$">USD ($)</option>
+        <option value="€">EUR (€)</option>
+        <option value="£">GBP (£)</option>
+        <option value="A$">AUD (A$)</option>
+        <option value="C$">CAD (C$)</option>
+      </select>
+    </div>
+    <div>
+      <div class="result-card">
+        <div class="lbl">Your minimum hourly rate</div>
+        <div class="big mono" id="r-hour">$0</div>
+        <div class="lbl" id="r-basis">based on 0 billable hours / year</div>
+      </div>
+      <div class="result-row">
+        <div class="result-mini"><div class="v mono" id="r-day">$0</div><div class="k">Day rate</div></div>
+        <div class="result-mini"><div class="v mono" id="r-week">$0</div><div class="k">Week rate</div></div>
+        <div class="result-mini"><div class="v mono" id="r-breakeven">$0</div><div class="k">Break-even /hr</div></div>
+      </div>
+      <p class="note" id="r-explain"></p>
+      <div class="affiliate">
+        <strong>Tip:</strong> the fastest way to raise your effective rate is cutting unbillable admin time.
+        Tools like <a href="#" data-affiliate="bonsai" rel="nofollow sponsored">Bonsai</a> or
+        <a href="#" data-affiliate="freshbooks" rel="nofollow sponsored">FreshBooks</a> automate contracts,
+        invoicing and expense tracking. <em>(affiliate links)</em>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="invoice-generator" class="wrap">
+  <h2>Free Invoice Generator</h2>
+  <p class="sub">Fill in the form, watch the invoice build itself, then hit Print / Save PDF. Your details are stored only in your own browser.</p>
+  <div class="grid2">
+    <div class="tool">
+      <label>Your name / business</label>
+      <input type="text" id="f-from" placeholder="Jane Doe Design">
+      <label>Your details (email, address, ABN/EIN…)</label>
+      <textarea id="f-fromdetails" rows="3" placeholder="jane@example.com&#10;123 Studio St, Portland OR"></textarea>
+      <label>Bill to</label>
+      <input type="text" id="f-client" placeholder="Acme Corp">
+      <label>Client details</label>
+      <textarea id="f-clientdetails" rows="2" placeholder="accounts@acme.com"></textarea>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px">
+        <div><label>Invoice #</label><input type="text" id="f-number" value="INV-001"></div>
+        <div><label>Date</label><input type="date" id="f-date"></div>
+        <div><label>Due date</label><input type="date" id="f-due"></div>
+      </div>
+      <label>Line items</label>
+      <table class="items-table" id="items">
+        <thead><tr><th style="width:50%">Description</th><th>Qty</th><th>Rate</th><th></th></tr></thead>
+        <tbody></tbody>
+      </table>
+      <button class="add-row" id="addrow" type="button">+ Add line item</button>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div><label>Tax (%)</label><input type="number" id="f-tax" value="0" min="0" step="0.5"></div>
+        <div><label>Currency</label>
+          <select id="f-currency">
+            <option value="$">USD ($)</option><option value="€">EUR (€)</option>
+            <option value="£">GBP (£)</option><option value="A$">AUD (A$)</option><option value="C$">CAD (C$)</option>
+          </select>
+        </div>
+      </div>
+      <label>Notes / payment terms</label>
+      <textarea id="f-notes" rows="2" placeholder="Payment due within 14 days. Bank: … Account: …"></textarea>
+      <div class="cta-row" style="justify-content:flex-start">
+        <button class="btn primary" id="printbtn" type="button">Print / Save as PDF</button>
+      </div>
+    </div>
+    <div>
+      <div class="inv-preview" id="preview">
+        <div class="inv-head">
+          <div>
+            <h3 id="p-from">Your Business</h3>
+            <div class="inv-meta" id="p-fromdetails"></div>
+          </div>
+          <div style="text-align:right">
+            <div style="font-size:1.3rem;font-weight:800;letter-spacing:.06em">INVOICE</div>
+            <div class="inv-meta" id="p-meta"></div>
+          </div>
+        </div>
+        <div class="inv-meta" style="margin-bottom:4px;font-weight:700;color:#15181c">Billed to</div>
+        <div class="inv-meta" id="p-client">—</div>
+        <table class="inv-table">
+          <thead><tr><th>Description</th><th class="num">Qty</th><th class="num">Rate</th><th class="num">Amount</th></tr></thead>
+          <tbody id="p-items"></tbody>
+        </table>
+        <div class="inv-totals">
+          <div><span>Subtotal</span><span class="mono" id="p-sub">$0.00</span></div>
+          <div id="p-taxrow" style="display:none"><span id="p-taxlbl">Tax</span><span class="mono" id="p-tax">$0.00</span></div>
+          <div class="grand"><span>Total due</span><span class="mono" id="p-total">$0.00</span></div>
+        </div>
+        <div class="inv-notes" id="p-notes"></div>
+      </div>
+      <p class="note">Need recurring invoices, payment reminders and card payments?
+        <a href="#" data-affiliate="freshbooks" rel="nofollow sponsored" style="color:var(--lime)">Try FreshBooks free</a> <em>(affiliate link)</em>.</p>
+    </div>
+  </div>
+</section>
+
+<section id="faq" class="wrap faq">
+  <h2>FAQ</h2>
+  <p class="sub">Straight answers to the questions freelancers actually ask.</p>
+  <details open>
+    <summary>How do I calculate my freelance hourly rate?</summary>
+    <p>Add your target annual income and your yearly business expenses, gross it up for tax, then divide by your <em>true</em> billable hours: working weeks × hours per week × the percentage of time you can actually bill (for most freelancers that's 50–70%, the rest goes to admin, marketing and proposals). Finally add a 10–20% buffer for slow months. That's exactly what the calculator above does.</p>
+  </details>
+  <details>
+    <summary>Why should my rate be higher than an employee salary?</summary>
+    <p>Because you're paying for everything an employer normally covers: taxes, insurance, retirement, equipment, software, holidays and sick days — plus the unbillable hours you spend finding and managing clients. A common rule of thumb is 1.5×–2× the equivalent employee hourly wage.</p>
+  </details>
+  <details>
+    <summary>Is my invoice data uploaded anywhere?</summary>
+    <p>No. Both tools run entirely in your browser. Your "from" details are saved to your own device (localStorage) so you don't retype them, and nothing is ever sent to a server.</p>
+  </details>
+  <details>
+    <summary>How do I save the invoice as a PDF?</summary>
+    <p>Click <strong>Print / Save as PDF</strong> and choose "Save as PDF" as the destination in your browser's print dialog. The page is styled so only the invoice prints.</p>
+  </details>
+</section>
+
+<footer>
+  <div class="wrap" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px">
+    <div>© <span id="year"></span> SoloWorks. Free tools for freelancers.</div>
+    <div>
+      <a href="#rate-calculator">Rate Calculator</a> ·
+      <a href="#invoice-generator">Invoice Generator</a> ·
+      <a href="../templates/">Templates</a> ·
+      <a href="../tools/">Tool Directory</a> ·
+      <a href="../blog/">Blog</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var $ = function(id){ return document.getElementById(id); };
+  $("year").textContent = new Date().getFullYear();
+
+  /* ---------- rate calculator ---------- */
+  var rateInputs = ["income","expenses","taxrate","weeks","hours","billable","buffer","currency"];
+  function money(cur, n, dec){
+    if (dec === undefined) dec = 0;
+    return cur + n.toLocaleString(undefined, {minimumFractionDigits: dec, maximumFractionDigits: dec});
+  }
+  function calcRate(){
+    var income = +$("income").value || 0;
+    var expenses = +$("expenses").value || 0;
+    var tax = Math.min(+$("taxrate").value || 0, 99) / 100;
+    var weeks = Math.max(+$("weeks").value || 1, 1);
+    var hours = Math.max(+$("hours").value || 1, 1);
+    var billablePct = Math.min(Math.max(+$("billable").value || 1, 1), 100) / 100;
+    var buffer = (+$("buffer").value || 0) / 100;
+    var cur = $("currency").value;
+
+    var grossNeeded = (income / (1 - tax)) + expenses;
+    var billableHours = weeks * hours * billablePct;
+    var breakeven = grossNeeded / billableHours;
+    var rate = breakeven * (1 + buffer);
+    var billableHoursDay = hours / 5 * billablePct;
+
+    $("r-hour").textContent = money(cur, Math.ceil(rate));
+    $("r-day").textContent = money(cur, Math.ceil(rate * billableHoursDay));
+    $("r-week").textContent = money(cur, Math.ceil(rate * billableHours / weeks));
+    $("r-breakeven").textContent = money(cur, Math.ceil(breakeven));
+    $("r-basis").textContent = "based on " + Math.round(billableHours).toLocaleString() + " billable hours / year";
+    $("r-explain").textContent = "To take home " + money(cur, income) + " after ~" + Math.round(tax*100) +
+      "% tax with " + money(cur, expenses) + " in expenses, you need to gross " + money(cur, Math.ceil(grossNeeded)) +
+      ". Across " + Math.round(billableHours).toLocaleString() + " billable hours that's " + money(cur, Math.ceil(breakeven)) +
+      "/hr to break even — the headline rate adds your " + Math.round(buffer*100) + "% buffer.";
+  }
+  rateInputs.forEach(function(id){ $(id).addEventListener("input", calcRate); });
+  calcRate();
+
+  /* ---------- invoice generator ---------- */
+  var tbody = document.querySelector("#items tbody");
+  function addRow(desc, qty, rate){
+    var tr = document.createElement("tr");
+    tr.innerHTML = '<td><input type="text" class="i-desc" placeholder="Design work"></td>' +
+      '<td style="width:70px"><input type="number" class="i-qty" value="1" min="0" step="0.5"></td>' +
+      '<td style="width:110px"><input type="number" class="i-rate" value="0" min="0" step="10"></td>' +
+      '<td style="width:34px"><button class="row-del" type="button" title="Remove">×</button></td>';
+    tr.querySelector(".i-desc").value = desc || "";
+    tr.querySelector(".i-qty").value = qty != null ? qty : 1;
+    tr.querySelector(".i-rate").value = rate != null ? rate : 0;
+    tr.querySelector(".row-del").addEventListener("click", function(){ tr.remove(); render(); });
+    tr.querySelectorAll("input").forEach(function(i){ i.addEventListener("input", render); });
+    tbody.appendChild(tr);
+  }
+  $("addrow").addEventListener("click", function(){ addRow(); render(); });
+
+  var fields = ["f-from","f-fromdetails","f-client","f-clientdetails","f-number","f-date","f-due","f-tax","f-currency","f-notes"];
+  fields.forEach(function(id){ $(id).addEventListener("input", render); });
+
+  var today = new Date();
+  $("f-date").value = today.toISOString().slice(0,10);
+  var due = new Date(today.getTime() + 14*86400000);
+  $("f-due").value = due.toISOString().slice(0,10);
+
+  function esc(s){
+    return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+  }
+  function fmtDate(v){
+    if(!v) return "";
+    var d = new Date(v + "T00:00:00");
+    return d.toLocaleDateString(undefined, {year:"numeric", month:"short", day:"numeric"});
+  }
+  function render(){
+    var cur = $("f-currency").value;
+    $("p-from").textContent = $("f-from").value || "Your Business";
+    $("p-fromdetails").textContent = $("f-fromdetails").value;
+    $("p-client").textContent = ($("f-client").value || "—") + ($("f-clientdetails").value ? "\n" + $("f-clientdetails").value : "");
+    $("p-meta").textContent = ($("f-number").value ? "#" + $("f-number").value + "\n" : "") +
+      (($("f-date").value) ? "Issued " + fmtDate($("f-date").value) + "\n" : "") +
+      (($("f-due").value) ? "Due " + fmtDate($("f-due").value) : "");
+    var rowsHtml = "", sub = 0;
+    tbody.querySelectorAll("tr").forEach(function(tr){
+      var d = tr.querySelector(".i-desc").value;
+      var q = +tr.querySelector(".i-qty").value || 0;
+      var r = +tr.querySelector(".i-rate").value || 0;
+      var amt = q * r; sub += amt;
+      if (d || amt) {
+        rowsHtml += "<tr><td>" + esc(d || "—") + "</td><td class='num mono'>" + q +
+          "</td><td class='num mono'>" + money(cur, r, 2) + "</td><td class='num mono'>" + money(cur, amt, 2) + "</td></tr>";
+      }
+    });
+    $("p-items").innerHTML = rowsHtml || "<tr><td colspan='4' style='color:#98a2ad'>Add a line item…</td></tr>";
+    var taxPct = +$("f-tax").value || 0;
+    var taxAmt = sub * taxPct / 100;
+    $("p-sub").textContent = money(cur, sub, 2);
+    $("p-taxrow").style.display = taxPct ? "flex" : "none";
+    $("p-taxlbl").textContent = "Tax (" + taxPct + "%)";
+    $("p-tax").textContent = money(cur, taxAmt, 2);
+    $("p-total").textContent = money(cur, sub + taxAmt, 2);
+    $("p-notes").textContent = $("f-notes").value;
+    try {
+      localStorage.setItem("ratekit-from", JSON.stringify({from: $("f-from").value, details: $("f-fromdetails").value, notes: $("f-notes").value}));
+    } catch(e){}
+  }
+  try {
+    var saved = JSON.parse(localStorage.getItem("ratekit-from") || "null");
+    if (saved) { $("f-from").value = saved.from || ""; $("f-fromdetails").value = saved.details || ""; $("f-notes").value = saved.notes || ""; }
+  } catch(e){}
+  addRow("", 1, 0);
+  render();
+  $("printbtn").addEventListener("click", function(){ window.print(); });
+})();
+</script>
+</body>
+</html>

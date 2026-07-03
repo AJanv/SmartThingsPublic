@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Best Tools for Freelancers, Honestly Reviewed — SoloWorks</title>
+<meta name="description" content="A curated directory of the tools working freelancers actually use: invoicing, proposals, time tracking, payments, portfolios and finding clients. With honest one-line takes.">
+<link rel="canonical" href="https://yourdomain.com/tools/">
+<meta property="og:title" content="The freelancer tool directory — SoloWorks">
+<meta property="og:description" content="The tools working freelancers actually use, honestly described. Invoicing, proposals, time tracking, payments and more.">
+<meta property="og:type" content="website">
+<style>
+  :root{
+    --bg:#f7f7fb; --card:#ffffff; --ink:#1b1d29; --soft:#5f6377;
+    --edge:#e4e5ef; --brand:#5548e0; --brand-soft:#eceafd; --amber:#b97e14; --amber-soft:#fdf3dd;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+  header{background:var(--card);border-bottom:1px solid var(--edge);position:sticky;top:0;z-index:40}
+  .nav{display:flex;justify-content:space-between;align-items:center;height:60px}
+  .logo{font-weight:800;font-size:1.15rem;color:var(--ink);text-decoration:none;letter-spacing:-.02em}
+  .logo span{color:var(--brand)}
+  .nav a.link{color:var(--soft);text-decoration:none;margin-left:20px;font-size:.9rem;font-weight:600}
+  .nav a.link:hover{color:var(--ink)}
+  .hero{text-align:center;padding:64px 0 30px}
+  .hero h1{font-size:clamp(1.8rem,4.2vw,2.8rem);letter-spacing:-.03em;line-height:1.15;font-weight:800}
+  .hero h1 em{font-style:normal;color:var(--brand)}
+  .hero p{color:var(--soft);max-width:600px;margin:14px auto 0;font-size:1.03rem}
+  .search-row{max-width:560px;margin:26px auto 0}
+  #search{width:100%;padding:14px 18px;border-radius:12px;border:1px solid var(--edge);font-size:1rem;background:var(--card);color:var(--ink);box-shadow:0 10px 30px -18px rgba(27,29,41,.25)}
+  #search:focus{outline:2px solid var(--brand)}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:18px 0 8px}
+  .chip{border:1px solid var(--edge);background:var(--card);color:var(--soft);border-radius:999px;padding:7px 15px;font-size:.85rem;font-weight:600;cursor:pointer}
+  .chip:hover{border-color:var(--brand);color:var(--brand)}
+  .chip.active{background:var(--brand);border-color:var(--brand);color:#fff}
+  section{padding:34px 0 60px}
+  .featured-band{background:var(--amber-soft);border:1px solid #f0dfb6;border-radius:14px;padding:18px 20px;margin-bottom:26px;display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
+  .featured-band b{color:var(--amber)}
+  .featured-band a{color:var(--amber);font-weight:700}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  @media(max-width:980px){.grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:640px){.grid{grid-template-columns:1fr}}
+  .tool-card{background:var(--card);border:1px solid var(--edge);border-radius:14px;padding:20px;display:flex;flex-direction:column;transition:transform .12s ease,box-shadow .12s ease}
+  .tool-card:hover{transform:translateY(-2px);box-shadow:0 14px 30px -18px rgba(27,29,41,.3)}
+  .tool-card.featured{border-color:#e8c983;background:linear-gradient(180deg,#fffdf6,#fff)}
+  .tool-top{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+  .tool-badge{width:42px;height:42px;border-radius:10px;background:var(--brand-soft);color:var(--brand);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.05rem;flex-shrink:0}
+  .tool-name{font-weight:800;font-size:1.05rem}
+  .tool-cat{font-size:.72rem;color:var(--soft);text-transform:uppercase;letter-spacing:.07em;font-weight:700}
+  .tool-desc{color:var(--soft);font-size:.92rem;flex:1}
+  .tool-foot{display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:12px;border-top:1px solid var(--edge)}
+  .pricing{font-size:.8rem;color:var(--soft);font-weight:600}
+  .visit{font-size:.85rem;font-weight:700;color:var(--brand);text-decoration:none}
+  .visit:hover{text-decoration:underline}
+  .feat-tag{font-size:.68rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--amber)}
+  .empty{color:var(--soft);text-align:center;padding:40px 0;display:none}
+  .cta-box{margin-top:44px;background:var(--card);border:1px solid var(--edge);border-radius:16px;padding:30px;text-align:center}
+  .cta-box h2{font-size:1.4rem;letter-spacing:-.02em}
+  .cta-box p{color:var(--soft);max-width:560px;margin:10px auto 18px}
+  .btn{display:inline-block;padding:12px 24px;border-radius:10px;background:var(--brand);color:#fff;font-weight:700;text-decoration:none;font-size:.95rem}
+  .btn:hover{filter:brightness(1.1)}
+  footer{border-top:1px solid var(--edge);padding:32px 0;color:var(--soft);font-size:.88rem;background:var(--card)}
+  footer a{color:var(--ink);text-decoration:none}
+  .disclosure{font-size:.8rem;color:var(--soft);margin-top:8px}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="../">Solo<span>Works</span></a>
+    <nav>
+      <a class="link" href="#directory">Directory</a>
+      <a class="link" href="#feature">Get featured</a>
+      <a class="link" href="../rates/">Rate calculator</a>
+      <a class="link" href="../templates/">Templates</a>
+      <a class="link" href="../blog/">Blog</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap hero">
+  <h1>The tools freelancers <em>actually</em> use.</h1>
+  <p>No pay-to-play rankings, no 4,000-word "reviews". A curated directory with one honest line about each tool, organized by what you're trying to get done.</p>
+  <div class="search-row"><input id="search" type="search" placeholder="Search tools… (e.g. invoicing, contracts, time)" aria-label="Search tools"></div>
+  <div class="chips" id="chips"></div>
+</div>
+
+<section id="directory" class="wrap">
+  <div class="featured-band">
+    <div><b>★ Featured spots:</b> the two highlighted cards below are reserved for sponsors. Your tool in front of freelancers deciding what to buy.</div>
+    <a href="#feature">Book a spot →</a>
+  </div>
+  <div class="grid" id="grid"></div>
+  <div class="empty" id="empty">Nothing matches that search — try a different word, like "invoice" or "portfolio".</div>
+
+  <div class="cta-box" id="feature">
+    <h2>Make a tool freelancers should know about?</h2>
+    <p>Submissions are free and curated — if it's genuinely useful we list it. Featured placement (top of the grid + badge) is available monthly for makers who want the spotlight.</p>
+    <a class="btn" href="mailto:hello@example.com?subject=FreelanceStack%20listing">Submit your tool</a>
+    <p class="disclosure">Listing is editorial and free. Featured spots are paid and always labeled.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px">
+    <div>© <span id="year"></span> SoloWorks.
+      <div class="disclosure">Some outbound links may be affiliate links — they never affect what we list or say.</div>
+    </div>
+    <div>
+      <a href="#directory">Directory</a> ·
+      <a href="../rates/">Free rate calculator</a> ·
+      <a href="../templates/">Client templates</a> ·
+      <a href="../blog/">Blog</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  /*
+   * SETUP (site owner): join each tool's affiliate/partner program and replace the
+   * plain URLs below with your affiliate links. `featured: true` pins a card to the
+   * top with the sponsor badge — sell these slots via the "Get featured" CTA.
+   */
+  var TOOLS = [
+    {name:"Bonsai", cat:"All-in-one", desc:"Contracts, proposals, invoicing and taxes in one place. The 'I just want one tool' choice for solo freelancers.", pricing:"From $25/mo", url:"https://www.hellobonsai.com", featured:true},
+    {name:"FreshBooks", cat:"Invoicing & Accounting", desc:"The friendliest invoicing and bookkeeping app for non-accountants. Great automated payment reminders.", pricing:"From $19/mo", url:"https://www.freshbooks.com", featured:true},
+    {name:"Wave", cat:"Invoicing & Accounting", desc:"Genuinely free invoicing and accounting. You pay only card/bank fees when clients pay online.", pricing:"Free", url:"https://www.waveapps.com"},
+    {name:"QuickBooks Self-Employed", cat:"Invoicing & Accounting", desc:"Best if you're in the US and want mileage, quarterly tax estimates and Schedule C exports handled.", pricing:"From $20/mo", url:"https://quickbooks.intuit.com"},
+    {name:"PandaDoc", cat:"Proposals & Contracts", desc:"Polished proposals with e-signatures and view tracking — you'll know when the client opens it.", pricing:"Free e-sign · paid from $19/mo", url:"https://www.pandadoc.com"},
+    {name:"Proposify", cat:"Proposals & Contracts", desc:"Heavier-duty proposal software with a template library; worth it once deals get bigger.", pricing:"From $29/mo", url:"https://www.proposify.com"},
+    {name:"Dropbox Sign", cat:"Proposals & Contracts", desc:"Dead-simple legally binding e-signatures when you just need a contract signed today.", pricing:"Free tier · from $15/mo", url:"https://sign.dropbox.com"},
+    {name:"Toggl Track", cat:"Time Tracking", desc:"One-click time tracking that stays out of your way, with reports clients understand.", pricing:"Free tier · from $9/mo", url:"https://toggl.com/track"},
+    {name:"Clockify", cat:"Time Tracking", desc:"The best fully-free time tracker — unlimited projects and clients without paying.", pricing:"Free", url:"https://clockify.me"},
+    {name:"Harvest", cat:"Time Tracking", desc:"Time tracking that flows straight into invoices — ideal for hourly billers.", pricing:"Free tier · from $11/mo", url:"https://www.getharvest.com"},
+    {name:"Stripe", cat:"Payments", desc:"The standard for taking card payments and payment links. Invoicing built in.", pricing:"Pay per transaction", url:"https://stripe.com"},
+    {name:"Wise", cat:"Payments", desc:"Receive international client payments with real exchange rates. Essential for cross-border work.", pricing:"Pay per transfer", url:"https://wise.com"},
+    {name:"PayPal", cat:"Payments", desc:"Clients everywhere already have it. Higher fees, but zero friction to get paid.", pricing:"Pay per transaction", url:"https://www.paypal.com"},
+    {name:"Notion", cat:"Projects & Clients", desc:"Client portals, project trackers and your whole business wiki in one flexible tool.", pricing:"Free tier · from $10/mo", url:"https://www.notion.com"},
+    {name:"Trello", cat:"Projects & Clients", desc:"Kanban boards simple enough that clients will actually use them with you.", pricing:"Free tier · from $5/mo", url:"https://trello.com"},
+    {name:"ClickUp", cat:"Projects & Clients", desc:"Power-user project management when Trello feels too small and you like tweaking.", pricing:"Free tier · from $7/mo", url:"https://clickup.com"},
+    {name:"Upwork", cat:"Finding Work", desc:"The biggest freelance marketplace. Race-to-the-bottom in places, but real six-figure freelancers live here.", pricing:"Free + service fee", url:"https://www.upwork.com"},
+    {name:"Contra", cat:"Finding Work", desc:"Commission-free freelance marketplace with a portfolio profile — a nicer place to send prospects.", pricing:"Free", url:"https://contra.com"},
+    {name:"Toptal", cat:"Finding Work", desc:"High-end network for senior devs, designers and finance folks. Hard to get in; strong rates once in.", pricing:"Free to apply", url:"https://www.toptal.com"},
+    {name:"Carrd", cat:"Portfolio & Presence", desc:"A professional one-page portfolio in an afternoon for the price of two coffees a year.", pricing:"Free tier · Pro from $19/yr", url:"https://carrd.co"},
+    {name:"Webflow", cat:"Portfolio & Presence", desc:"Design-grade websites without code. The portfolio flex for designers.", pricing:"Free tier · from $14/mo", url:"https://webflow.com"},
+    {name:"Framer", cat:"Portfolio & Presence", desc:"Fast, animated marketing sites from a Figma-like editor. Modern default for personal sites.", pricing:"Free tier · from $5/mo", url:"https://www.framer.com"},
+    {name:"Calendly", cat:"Client Comms", desc:"Kill the 'when works for you?' email chain. Booking links with buffers and time zones handled.", pricing:"Free tier · from $10/mo", url:"https://calendly.com"},
+    {name:"Loom", cat:"Client Comms", desc:"Screen-record quick video updates instead of writing long emails. Clients love it.", pricing:"Free tier · from $15/mo", url:"https://www.loom.com"},
+    {name:"Folk", cat:"Client Comms", desc:"A lightweight CRM that feels like a spreadsheet — enough to never drop a lead again.", pricing:"From $20/mo", url:"https://www.folk.app"},
+    {name:"Keeper", cat:"Taxes", desc:"Finds tax write-offs in your bank transactions automatically. US freelancers' quiet favorite.", pricing:"From $20/mo", url:"https://www.keepertax.com"},
+    {name:"Found", cat:"Taxes", desc:"Business banking with built-in tax estimates and write-off tracking for US self-employed.", pricing:"Free tier", url:"https://found.com"}
+  ];
+
+  var grid = document.getElementById("grid");
+  var chipsEl = document.getElementById("chips");
+  var searchEl = document.getElementById("search");
+  var emptyEl = document.getElementById("empty");
+  var activeCat = "All";
+
+  var cats = ["All"];
+  TOOLS.forEach(function(t){ if (cats.indexOf(t.cat) === -1) cats.push(t.cat); });
+
+  cats.forEach(function(c){
+    var b = document.createElement("button");
+    b.className = "chip" + (c === "All" ? " active" : "");
+    b.textContent = c;
+    b.addEventListener("click", function(){
+      activeCat = c;
+      chipsEl.querySelectorAll(".chip").forEach(function(x){ x.classList.remove("active"); });
+      b.classList.add("active");
+      render();
+    });
+    chipsEl.appendChild(b);
+  });
+
+  searchEl.addEventListener("input", render);
+
+  function esc(s){ return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+
+  function render(){
+    var q = searchEl.value.trim().toLowerCase();
+    var list = TOOLS.filter(function(t){
+      var okCat = activeCat === "All" || t.cat === activeCat;
+      var hay = (t.name + " " + t.cat + " " + t.desc).toLowerCase();
+      var okQ = !q || hay.indexOf(q) !== -1 || (q.length > 4 && hay.indexOf(q.slice(0, -1)) !== -1);
+      return okCat && okQ;
+    });
+    list.sort(function(a,b){ return (b.featured?1:0) - (a.featured?1:0); });
+    grid.innerHTML = list.map(function(t){
+      return '<div class="tool-card' + (t.featured ? ' featured' : '') + '">' +
+        '<div class="tool-top">' +
+          '<div class="tool-badge">' + esc(t.name.charAt(0)) + '</div>' +
+          '<div><div class="tool-name">' + esc(t.name) + (t.featured ? ' <span class="feat-tag">★ Featured</span>' : '') + '</div>' +
+          '<div class="tool-cat">' + esc(t.cat) + '</div></div>' +
+        '</div>' +
+        '<div class="tool-desc">' + esc(t.desc) + '</div>' +
+        '<div class="tool-foot"><span class="pricing">' + esc(t.pricing) + '</span>' +
+        '<a class="visit" href="' + t.url + '" target="_blank" rel="noopener nofollow sponsored">Visit →</a></div>' +
+      '</div>';
+    }).join("");
+    emptyEl.style.display = list.length ? "none" : "block";
+  }
+  render();
+})();
+</script>
+</body>
+</html>
