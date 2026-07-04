@@ -1,12 +1,12 @@
 # Project status & decision log
 
-_Last updated: 2026-07-03. This file is the shared memory between work sessions and agents
+_Last updated: 2026-07-04. This file is the shared memory between work sessions and agents
 (Claude, Codex, humans). Update it when state changes._
 
-## Current state: BUILD COMPLETE — NOT LAUNCHED
+## Current state: LAUNCHED
 
-Everything code-side is done and browser-tested. The project earns $0 until the owner
-completes the account steps below.
+The umbrella site is live on Netlify at https://soloworks-hq.netlify.app. It is still
+pre-revenue until checkout and affiliate URLs are wired.
 
 ## What exists
 
@@ -16,7 +16,7 @@ completes the account steps below.
 | Legacy standalone versions of the 3 sections | `ratekit/`, `clientkit/`, `freelancestack/` | Done, tested; superseded by `soloworks/` |
 | 5 sellable template packs (Proposal, Invoice & Payment, Onboarding, Contract, Rate-Raise) | Owner's Google Drive, folder "ClientKit Products" | Written, ready to export as PDFs for Gumroad |
 | Launch checklist + marketing scripts (Reddit/newsletter/sponsor pitches) | Same Drive folder | Written |
-| Demo URLs (not real hosting) | raw.githack.com/AJanv/SmartThingsPublic/claude/screenshot-verification-zycn65/passive-income-sites/... | Unverified but expected live |
+| Public site | https://soloworks-hq.netlify.app | Live on Netlify |
 
 ## Key decisions and why
 
@@ -34,15 +34,10 @@ completes the account steps below.
 ## Blocked / pending — OWNER ONLY
 
 - [ ] Buy domain (~$11; Porkbun/Cloudflare). Unblocks brand rename + SEO submission.
-- [ ] Real hosting: Netlify Drop drag-and-drop, OR allow railway.com +
-      backboard.railway.com in the Claude Code environment network policy and add
-      RAILWAY_TOKEN env var (the original session's sandbox blocked Netlify, Railway,
-      and Higgsfield hosting — org egress policy).
 - [ ] Gumroad: create 6 products (descriptions pre-written in Drive "LAUNCH CHECKLIST" doc),
       then paste checkout URLs into `CHECKOUT_URLS` in `soloworks/templates/index.html`.
 - [ ] Affiliate programs: FreshBooks + Bonsai first; swap `data-affiliate` hrefs in
       `soloworks/rates/index.html` and URLs in the `TOOLS` array in `soloworks/tools/index.html`.
-- [ ] Replace `hello@example.com` in `soloworks/tools/index.html` with real email.
 - [ ] Google Search Console submission (after domain).
 - [ ] Launch-week posts (scripts in Drive "MARKETING SCRIPTS" doc).
 

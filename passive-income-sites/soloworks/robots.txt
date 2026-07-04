@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # Replace with your real domain before going live
-Sitemap: https://yourdomain.com/sitemap.xml
+Sitemap: https://soloworks-hq.netlify.app/sitemap.xml
