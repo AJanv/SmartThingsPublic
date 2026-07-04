@@ -39,7 +39,7 @@
   .hero h1 span{color:var(--lime)}
   .hero p{color:var(--muted);max-width:640px;margin:18px auto 0;font-size:1.08rem}
   section{padding:44px 0}
-  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
   @media(max-width:860px){.cards{grid-template-columns:1fr}}
   .card{background:var(--panel);border:1px solid var(--edge);border-radius:16px;padding:28px;display:flex;flex-direction:column;text-decoration:none;color:var(--text);transition:transform .12s ease,border-color .12s ease}
   .card:hover{transform:translateY(-3px);border-color:var(--lime)}
@@ -66,7 +66,7 @@
   <div class="wrap nav">
     <a class="logo" href="./">Solo<b>Works</b></a>
     <nav>
-      <a class="link" href="rates/">Rate Calculator</a>
+      <a class="link" href="rates/">Rate Calculator</a><a class="link" href="proposals/">Proposals</a>
       <a class="link" href="templates/">Templates</a>
       <a class="link" href="tools/">Tool Directory</a>
       <a class="link" href="blog/">Blog</a>
@@ -86,6 +86,12 @@
       <h2>Rate Calculator & Invoice Generator</h2>
       <p>Work out what you should actually charge — including taxes, expenses and unbillable time — then create professional invoices in your browser. Nothing uploaded, no signup.</p>
       <span class="go">Calculate your rate →</span>
+    </a>
+    <a class="card" href="proposals/">
+      <span class="free-tag">100% free</span>
+      <h2>Proposal Generator</h2>
+      <p>Turn a client call into a clean one-page proposal in five minutes — goal, deliverables, timeline, price and terms, ready to print or send as PDF.</p>
+      <span class="go">Write a proposal →</span>
     </a>
     <a class="card" href="templates/">
       <span class="icon">📄</span>
@@ -121,6 +127,16 @@
       <h4>Client won't pay? The exact emails to send, week by week</h4>
       <p>A four-stage reminder sequence from friendly nudge to final notice — copy, paste, get paid.</p>
     </a>
+    <a class="post" href="blog/retainer-vs-project-pricing.html">
+      <span class="k">Pricing</span>
+      <h4>Retainer vs project pricing: which makes more money?</h4>
+      <p>The honest trade-off table and the project-first hybrid senior freelancers converge on.</p>
+    </a>
+    <a class="post" href="blog/freelance-tax-deductions-checklist.html">
+      <span class="k">Money</span>
+      <h4>The freelance tax deductions checklist (2026)</h4>
+      <p>The ordinary expenses freelancers forget to claim, and the 15-minute habit that captures them.</p>
+    </a>
   </div>
 </section>
 
@@ -128,7 +144,7 @@
   <div class="wrap" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px">
     <div>© <span id="year"></span> SoloWorks.</div>
     <div>
-      <a href="rates/">Rate Calculator</a> ·
+      <a href="rates/">Rate Calculator</a> · <a href="proposals/">Proposal Generator</a> ·
       <a href="templates/">Templates</a> ·
       <a href="tools/">Tool Directory</a> ·
       <a href="blog/">Blog</a> ·

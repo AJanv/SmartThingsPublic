@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Freelance Proposal Generator — SoloWorks</title>
+<meta name="description" content="Create a clean, client-ready freelance proposal in minutes: goal, deliverables, timeline, pricing and terms. Free, no signup, prints to PDF, nothing leaves your browser.">
+<link rel="canonical" href="https://soloworks-hq.netlify.app/proposals/">
+<meta property="og:title" content="Free Freelance Proposal Generator — SoloWorks">
+<meta property="og:description" content="Build a client-ready proposal in minutes. Free, no signup, prints to PDF.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://soloworks-hq.netlify.app/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What should a freelance proposal include?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A strong freelance proposal states the client's goal in their own words, lists concrete deliverables, gives a timeline, names a fixed price with deposit terms, spells out what is not included, and ends with a clear next step. One page is enough for most projects."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this proposal generator free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. It runs entirely in your browser — no signup, no upload, and you can print or save the proposal as a PDF from your browser's print dialog."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long should a freelance proposal be?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For most projects under about $10,000, one page wins: it shows confidence and gets read the day it arrives. Reserve multi-page proposals for larger engagements with multiple stakeholders."
+      }
+    }
+  ]
+}
+</script>
+<style>
+  :root{
+    --ink:#101418; --panel:#171d24; --panel2:#1e2630; --edge:#2b3642;
+    --text:#e8edf2; --muted:#8b98a5; --lime:#c6f24e; --lime-ink:#1a2405;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--ink);color:var(--text);line-height:1.6}
+  .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+  .wrap{max-width:1060px;margin:0 auto;padding:0 20px}
+  header{position:sticky;top:0;z-index:50;background:rgba(16,20,24,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--edge)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .logo{font-weight:800;font-size:1.15rem;letter-spacing:-.02em;color:var(--text);text-decoration:none}
+  .logo b{color:var(--lime)}
+  .nav a.link{color:var(--muted);text-decoration:none;margin-left:22px;font-size:.92rem}
+  .nav a.link:hover{color:var(--text)}
+  .hero{padding:60px 0 30px;text-align:center}
+  .hero h1{font-size:clamp(1.8rem,4.2vw,2.8rem);letter-spacing:-.03em;line-height:1.12;font-weight:800}
+  .hero h1 span{color:var(--lime)}
+  .hero p{color:var(--muted);max-width:620px;margin:16px auto 0;font-size:1.03rem}
+  section{padding:36px 0 64px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+  @media(max-width:860px){.grid2{grid-template-columns:1fr}}
+  .tool{background:var(--panel);border:1px solid var(--edge);border-radius:16px;padding:28px}
+  label{display:block;font-size:.82rem;color:var(--muted);margin:14px 0 5px;font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+  input,select,textarea{
+    width:100%;background:var(--panel2);border:1px solid var(--edge);border-radius:8px;color:var(--text);
+    padding:10px 12px;font-size:.98rem;font-family:inherit}
+  input:focus,select:focus,textarea:focus{outline:2px solid var(--lime);outline-offset:-1px}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+  .btn{display:inline-block;padding:12px 22px;border-radius:10px;text-decoration:none;font-weight:700;font-size:.95rem;border:1px solid var(--edge);color:var(--text);background:none;cursor:pointer;font-family:inherit}
+  .btn.primary{background:var(--lime);color:var(--lime-ink);border-color:var(--lime)}
+  .btn.primary:hover{filter:brightness(1.08)}
+  .hint{font-size:.8rem;color:var(--muted);margin-top:4px}
+  .upsell{margin-top:22px;border:1px dashed var(--edge);border-radius:12px;padding:16px 18px;font-size:.92rem;color:var(--muted)}
+  .upsell a{color:var(--lime);font-weight:700;text-decoration:none}
+  /* preview */
+  .prop-preview{background:#fff;color:#15181c;border-radius:12px;padding:38px;min-height:520px}
+  .prop-preview .p-kicker{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#8a94a0;font-weight:700}
+  .prop-preview h3{font-size:1.5rem;letter-spacing:-.02em;margin:4px 0 2px}
+  .prop-preview .p-meta{font-size:.85rem;color:#5a6470;margin-bottom:20px}
+  .prop-preview h4{font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;margin:20px 0 6px;border-bottom:2px solid #15181c;padding-bottom:4px}
+  .prop-preview p,.prop-preview li{font-size:.93rem;color:#333a42;line-height:1.6}
+  .prop-preview ul{margin-left:20px}
+  .prop-preview .p-price{font-size:1.5rem;font-weight:800;margin:6px 0 2px}
+  .prop-preview .p-terms{font-size:.85rem;color:#5a6470}
+  .prop-preview .p-next{background:#f3f5f7;border-radius:8px;padding:12px 16px;margin-top:22px;font-size:.9rem}
+  .faq{max-width:760px}
+  .faq details{border:1px solid var(--edge);border-radius:10px;padding:16px 18px;margin-bottom:10px;background:var(--panel)}
+  .faq summary{cursor:pointer;font-weight:700}
+  .faq p{color:var(--muted);margin-top:10px;font-size:.95rem}
+  footer{border-top:1px solid var(--edge);padding:34px 0;color:var(--muted);font-size:.88rem}
+  footer a{color:var(--text);text-decoration:none}
+  @media print{
+    body *{visibility:hidden}
+    .prop-preview,.prop-preview *{visibility:visible}
+    .prop-preview{position:absolute;left:0;top:0;width:100%;border-radius:0;padding:24px}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="../">Solo<b>Works</b></a>
+    <nav>
+      <a class="link" href="../rates/">Rate Calculator</a>
+      <a class="link" href="../templates/">Templates</a>
+      <a class="link" href="../tools/">Tool Directory</a>
+      <a class="link" href="../blog/">Blog</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap hero">
+  <h1>Free Freelance <span>Proposal</span> Generator</h1>
+  <p>Turn a client call into a clean, one-page proposal in five minutes. Fill in the form, watch it build itself, print to PDF. No signup — nothing leaves your browser.</p>
+</div>
+
+<section class="wrap">
+  <div class="grid2">
+    <div class="tool">
+      <label>Your name / business</label>
+      <input type="text" id="f-from" placeholder="Jane Doe Design">
+      <label>Client / company</label>
+      <input type="text" id="f-client" placeholder="Acme Corp — Sarah Chen">
+      <label>Project title</label>
+      <input type="text" id="f-title" placeholder="Website redesign">
+      <label>The goal (use the client's own words)</label>
+      <textarea id="f-goal" rows="2" placeholder="Increase demo signups from the marketing site, which currently converts under 1% of visitors."></textarea>
+      <label>Deliverables — one per line</label>
+      <textarea id="f-deliverables" rows="4" placeholder="5-page marketing site, designed and built&#10;Mobile-responsive, loads under 2 seconds&#10;Analytics + A/B test setup&#10;1 training session for your team"></textarea>
+      <div class="row2">
+        <div><label>Timeline (weeks)</label><input type="number" id="f-weeks" value="4" min="1" step="1"></div>
+        <div><label>Revision rounds included</label><input type="number" id="f-revisions" value="2" min="0" step="1"></div>
+      </div>
+      <div class="row3">
+        <div><label>Price</label><input type="number" id="f-price" value="4800" min="0" step="100"></div>
+        <div><label>Currency</label>
+          <select id="f-currency"><option value="$">USD ($)</option><option value="€">EUR (€)</option><option value="£">GBP (£)</option><option value="A$">AUD (A$)</option><option value="C$">CAD (C$)</option></select>
+        </div>
+        <div><label>Deposit %</label><input type="number" id="f-deposit" value="50" min="0" max="100" step="5"></div>
+      </div>
+      <label>Not included (prevents scope creep)</label>
+      <textarea id="f-excluded" rows="2" placeholder="Copywriting, photography, ongoing maintenance — happy to quote separately."></textarea>
+      <label>Proposal valid for (days)</label>
+      <input type="number" id="f-valid" value="14" min="1" step="1">
+      <div style="margin-top:20px">
+        <button class="btn primary" id="printbtn" type="button">Print / Save as PDF</button>
+      </div>
+      <div class="upsell">
+        <strong>Want the version that closes?</strong> The <a href="../templates/">Proposal Pack</a> adds the persuasive wording: 3-option pricing tables, scope clauses, and the follow-up email scripts for day 3, 8 and 15.
+      </div>
+    </div>
+
+    <div>
+      <div class="prop-preview" id="preview">
+        <div class="p-kicker">Proposal</div>
+        <h3 id="p-title">Project title</h3>
+        <div class="p-meta" id="p-meta">Prepared for — · by — · —</div>
+        <h4>The goal</h4>
+        <p id="p-goal">—</p>
+        <h4>What I'll deliver</h4>
+        <ul id="p-deliverables"><li>—</li></ul>
+        <h4>Timeline</h4>
+        <p id="p-timeline">—</p>
+        <h4>Investment</h4>
+        <div class="p-price mono" id="p-price">$0</div>
+        <p class="p-terms" id="p-terms">—</p>
+        <h4>Not included</h4>
+        <p id="p-excluded">—</p>
+        <div class="p-next" id="p-next">—</div>
+      </div>
+      <p class="hint" style="margin-top:10px">Your details are saved in your own browser so the next proposal starts half-done.</p>
+    </div>
+  </div>
+</section>
+
+<section id="faq" class="wrap faq">
+  <h2 style="font-size:1.6rem;letter-spacing:-.02em;margin-bottom:6px">FAQ</h2>
+  <p style="color:var(--muted);margin-bottom:24px">Proposal questions freelancers actually ask.</p>
+  <details open>
+    <summary>What should a freelance proposal include?</summary>
+    <p>Six things: the client's goal in their own words, concrete deliverables, a timeline, a fixed price with deposit terms, explicit exclusions, and a clear next step. That's exactly the structure this generator builds. Long context-setting sections and boilerplate "about me" pages mostly go unread.</p>
+  </details>
+  <details>
+    <summary>How long should it be?</summary>
+    <p>For most projects under ~$10K, one page. It reads as confidence and gets a same-day decision more often than a deck. Save multi-page proposals for bigger engagements with committees — our <a href="../templates/" style="color:var(--lime)">Proposal Pack</a> includes both lengths.</p>
+  </details>
+  <details>
+    <summary>Should I show one price or options?</summary>
+    <p>Three options usually outperforms one: most clients pick the middle, so make the middle the project you want. This generator produces the single-price version; the three-option pricing table (with the anchoring math explained) is in the Proposal Pack.</p>
+  </details>
+  <details>
+    <summary>Is my proposal data uploaded anywhere?</summary>
+    <p>No. Everything runs in your browser. Your sender name is stored in your own browser's localStorage so you don't retype it; nothing is ever sent to a server.</p>
+  </details>
+</section>
+
+<footer>
+  <div class="wrap" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px">
+    <div>© <span id="year"></span> SoloWorks. Free tools for freelancers.</div>
+    <div>
+      <a href="../rates/">Rate Calculator</a> ·
+      <a href="../templates/">Templates</a> ·
+      <a href="../tools/">Tool Directory</a> ·
+      <a href="../blog/">Blog</a> ·
+      <a href="../privacy.html">Privacy</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var $ = function(id){ return document.getElementById(id); };
+  $("year").textContent = new Date().getFullYear();
+
+  var fields = ["f-from","f-client","f-title","f-goal","f-deliverables","f-weeks","f-revisions","f-price","f-currency","f-deposit","f-excluded","f-valid"];
+
+  function money(cur, n){ return cur + (n||0).toLocaleString(); }
+  function esc(s){ return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+
+  function render(){
+    var cur = $("f-currency").value;
+    var from = $("f-from").value || "[Your name]";
+    var client = $("f-client").value || "[Client]";
+    var today = new Date();
+    var validDays = +$("f-valid").value || 14;
+    var validUntil = new Date(today.getTime() + validDays*86400000);
+
+    $("p-title").textContent = $("f-title").value || "Project title";
+    $("p-meta").textContent = "Prepared for " + client + " · by " + from + " · " +
+      today.toLocaleDateString(undefined,{year:"numeric",month:"short",day:"numeric"});
+    $("p-goal").textContent = $("f-goal").value || "—";
+
+    var items = $("f-deliverables").value.split("\n").map(function(s){return s.trim();}).filter(Boolean);
+    $("p-deliverables").innerHTML = items.length
+      ? items.map(function(d){ return "<li>" + esc(d) + "</li>"; }).join("")
+      : "<li>—</li>";
+
+    var weeks = +$("f-weeks").value || 0;
+    $("p-timeline").textContent = weeks
+      ? weeks + " week" + (weeks>1?"s":"") + " from kickoff. Kickoff happens within 3 business days of acceptance and deposit."
+      : "—";
+
+    var price = +$("f-price").value || 0;
+    var depPct = Math.min(Math.max(+$("f-deposit").value || 0, 0), 100);
+    var dep = Math.round(price * depPct / 100);
+    var revs = +$("f-revisions").value || 0;
+    $("p-price").textContent = money(cur, price) + " fixed";
+    $("p-terms").textContent = (depPct
+      ? depPct + "% deposit (" + money(cur, dep) + ") to book, balance on delivery. "
+      : "Payable on delivery. ") +
+      "Includes " + revs + " round" + (revs===1?"":"s") + " of revisions; further rounds quoted separately.";
+    $("p-excluded").textContent = $("f-excluded").value || "Anything not listed above. New items are quoted and approved before work begins — no surprise invoices.";
+    $("p-next").innerHTML = "<strong>To go ahead:</strong> reply “approved” and I’ll send the deposit invoice and kickoff questionnaire. This proposal is valid until " +
+      validUntil.toLocaleDateString(undefined,{year:"numeric",month:"short",day:"numeric"}) + ".";
+
+    try { localStorage.setItem("soloworks-proposal-from", $("f-from").value); } catch(e){}
+  }
+
+  fields.forEach(function(id){ $(id).addEventListener("input", render); });
+  try {
+    var saved = localStorage.getItem("soloworks-proposal-from");
+    if (saved) $("f-from").value = saved;
+  } catch(e){}
+  render();
+  $("printbtn").addEventListener("click", function(){ window.print(); });
+})();
+</script>
+</body>
+</html>
