@@ -12,7 +12,7 @@ pre-revenue until checkout and affiliate URLs are wired.
 
 | Asset | Where | State |
 |---|---|---|
-| Umbrella site (landing, /rates/, /templates/, /tools/, /blog/ + sitemap/robots) | `soloworks/` | Done, tested (8 pages, no JS errors, no broken links) |
+| Umbrella site (landing, /rates/, /templates/, /tools/, /blog/ with 5 articles, privacy/disclosure page, 404, OG share image, sitemap/robots) | `soloworks/` | Done, tested (12 pages, no JS errors, no broken links) |
 | Legacy standalone versions of the 3 sections | `ratekit/`, `clientkit/`, `freelancestack/` | Done, tested; superseded by `soloworks/` |
 | 5 sellable template packs (Proposal, Invoice & Payment, Onboarding, Contract, Rate-Raise) | Owner's Google Drive, folder "ClientKit Products" | Written, ready to export as PDFs for Gumroad |
 | Launch checklist + marketing scripts (Reddit/newsletter/sponsor pitches) | Same Drive folder | Written |
@@ -38,6 +38,9 @@ pre-revenue until checkout and affiliate URLs are wired.
       then paste checkout URLs into `CHECKOUT_URLS` in `soloworks/templates/index.html`.
 - [ ] Affiliate programs: FreshBooks + Bonsai first; swap `data-affiliate` hrefs in
       `soloworks/rates/index.html` and URLs in the `TOOLS` array in `soloworks/tools/index.html`.
+      (The privacy/disclosure page these programs require now exists at /privacy.html.)
+- [ ] Confirm Netlify redeploys on git push (if the site was deployed via CLI/drag, commits
+      after 6ddc9f9 are NOT live until redeployed or the site is Git-connected).
 - [ ] Google Search Console submission (after domain).
 - [ ] Launch-week posts (scripts in Drive "MARKETING SCRIPTS" doc).
 
